@@ -1,0 +1,44 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder 
+    xmlns:ui='urn:ui:com.google.gwt.uibinder' 
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:c="urn:import:com.sencha.gxt.widget.core.client" 
+    xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container"
+    xmlns:form="urn:import:com.sencha.gxt.widget.core.client.form" 
+    xmlns:button="urn:import:com.sencha.gxt.widget.core.client.button">
+
+  <ui:with type="com.sencha.gxt.core.client.util.Margins" field="topMargin">
+    <ui:attributes top="10" right="10" bottom="10" left="10" />
+  </ui:with>
+
+  <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="topLayout">
+    <ui:attributes   margins="{topMargin}" />
+  </ui:with>
+
+  <ui:with type="com.sencha.gxt.core.client.util.Margins" field="topFormMargins">
+    <ui:attributes top="15" right="15" bottom="15" left="15" />
+  </ui:with>
+
+<!--   <ui:with type="com.sencha.gxt.widget.core.client.container.MarginData" field="topFormMarginData"> -->
+<!--     <ui:attributes margins="{topFormMargins}" /> -->
+<!--   </ui:with> -->
+
+  <ui:with type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData" field="verticalLayoutData">
+    <ui:attributes width="1" height="1"  margins="{topFormMargins}" />
+  </ui:with>
+
+  <container:VerticalLayoutContainer>
+    <container:child layoutData="{topLayout}">
+      <c:FramedPanel heading="Tool Search: Find tools developed at VARI" ui:field="panel">
+        <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="vlc">
+			<g:HorizontalPanel>
+				 <form:TextField ui:field="searchText" allowBlank="false" emptyText="Enter Search Text..." />
+				 <button:TextButton text="Search" ui:field="searchButton"/>
+			</g:HorizontalPanel>
+			<container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="resultsVlc"/>
+       </container:VerticalLayoutContainer>
+      </c:FramedPanel>
+    </container:child>
+  </container:VerticalLayoutContainer>
+
+</ui:UiBinder>
