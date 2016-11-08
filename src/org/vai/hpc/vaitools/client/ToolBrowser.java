@@ -100,9 +100,6 @@ public class ToolBrowser extends Composite
 			@Override
 			public void onSuccess(ArrayList<Tool> result) {
 				resultsVlc.clear();
-				//Label hits = new Label(result.size() + " tools matched");
-				//hits.setStylePrimaryName("hitsLabel");
-				//resultsVlc.add(hits);
 				for(final Tool m : result)
 				{
 					ModelView t = new  ModelView(m,true);
