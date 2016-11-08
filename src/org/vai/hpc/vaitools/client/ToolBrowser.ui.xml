@@ -27,18 +27,18 @@
     <ui:attributes width="1" height="1"  margins="{topFormMargins}" />
   </ui:with>
 
-  <container:VerticalLayoutContainer>
-    <container:child layoutData="{topLayout}">
-      <c:FramedPanel heading="Tool Search: Find tools developed at VARI" ui:field="panel">
+  <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="topLevel">
+    <container:child>
+      <c:FramedPanel heading="Tool Search: Find tools developed at VARI" ui:field="panel" stylePrimaryName="searchPanel">
         <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="vlc">
 			<g:HorizontalPanel>
-				 <form:TextField ui:field="searchText" allowBlank="false" emptyText="Enter Search Text..." />
+				 <form:TextField ui:field="searchText" width="300px" stylePrimaryName="searchInput" allowBlank="false"  emptyText="Enter Search Text..." />
 				 <button:TextButton text="Search" ui:field="searchButton"/>
 			</g:HorizontalPanel>
-			<container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="resultsVlc"/>
-       </container:VerticalLayoutContainer>
+		 </container:VerticalLayoutContainer>
       </c:FramedPanel>
     </container:child>
+    <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="resultsVlc"/>
   </container:VerticalLayoutContainer>
 
 </ui:UiBinder>

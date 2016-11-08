@@ -31,6 +31,9 @@ public class ToolServiceImpl extends RemoteServiceServlet implements ToolService
 			for (final File fileEntry : folder.listFiles()) 
 			{
 				Tool t = new Tool();
+				
+				if(!fileEntry.getName().toLowerCase().endsWith("txt"))
+					continue;
 				System.out.println(fileEntry.getName());
 				List<String> lines = Files.readAllLines(Paths.get(fileEntry.getPath()), charset);
 				Boolean newEntry=true;

@@ -3,13 +3,53 @@
 
 /** Example rules used by the template application (remove for your app) */
 .toolHeading {
-  font-size: 16px;
-  font-family: "Raleway";
+  font-size: 1.5em;
+  font-family: "Montserrat";
   font-weight: bold;
   color: #777777;
  }
 
+.toolHeadingLink {
+  font-size: 1.5em;
+  font-family: "Montserrat";
+  font-weight: bold;
+  color: #777777;
+ }
+ 
+ .toolHeadingLink:hover {
+  font-size: 1.5em;
+  font-family: "Montserrat";
+  font-weight: bold;
+  color: #7777FF;
+  text-decoration: underline;
+ }
+
  .toolContent {
-  margin-bottom:10px; 
-  font-family: "Raleway";
+  margin-bottom:1em; 
+  font-family: "Montserrat";
+ }
+ 
+ .searchPanel {
+ 	width: 400px;
+ 	background-color: #f5f5f5;
+ 	margin-left:auto; 
+    margin-right:auto; 
+ }
+ 
+ .searchInput {
+ 	width: 300px;
+ }
+ 
+ .toolPanel {
+ 	width: 80%;
+ 	margin-left:auto; 
+    margin-right:auto; 
+    max-width: 1000px;
+    min-width: 400px;
+    margin-bottom: 5px;
+ }
+ 
+ .toolhr {
+ 	width: 90%;
+  	border-bottom: 1px;
  }

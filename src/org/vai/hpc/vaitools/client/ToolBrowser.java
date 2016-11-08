@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.vai.hpc.vaitools.client.data.Tool;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyDownHandler;
@@ -18,6 +20,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
+
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.sencha.gxt.core.client.dom.ScrollSupport.ScrollMode;
@@ -38,6 +41,7 @@ public class ToolBrowser extends Composite
 
 	@UiField FramedPanel panel;
     @UiField VerticalLayoutContainer vlc;
+    @UiField VerticalLayoutContainer topLevel;
     @UiField VerticalLayoutContainer resultsVlc;
 	@UiField TextButton searchButton;
 	@UiField TextField searchText;
@@ -49,8 +53,8 @@ public class ToolBrowser extends Composite
 	public ToolBrowser()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
-		panel.setWidth(com.google.gwt.user.client.Window.getClientWidth()-100);
-		panel.setHeight(com.google.gwt.user.client.Window.getClientHeight()-80);
+		topLevel.setWidth(com.google.gwt.user.client.Window.getClientWidth()-100);
+		topLevel.setHeight(com.google.gwt.user.client.Window.getClientHeight()-80);
 		vlc.setScrollMode(ScrollMode.AUTO);
 		resultsVlc.setScrollMode(ScrollMode.AUTO);
 		com.google.gwt.user.client.Window.addResizeHandler(new ResizeHandler(){
@@ -58,8 +62,8 @@ public class ToolBrowser extends Composite
 			@Override
 			public void onResize(ResizeEvent event)
 			{
-				panel.setWidth(event.getWidth()-100);
-				panel.setHeight(event.getHeight()-200);
+				topLevel.setWidth(event.getWidth()-100);
+				topLevel.setHeight(event.getHeight()-200);
 			}});
 		
 		searchText.addKeyDownHandler(new KeyDownHandler(){
@@ -96,11 +100,22 @@ public class ToolBrowser extends Composite
 			@Override
 			public void onSuccess(ArrayList<Tool> result) {
 				resultsVlc.clear();
-				Label hits = new Label(result.size() + " tools matched");
-				hits.setStylePrimaryName("hitsLabel");
-				resultsVlc.add(hits);
+				//Label hits = new Label(result.size() + " tools matched");
+				//hits.setStylePrimaryName("hitsLabel");
+				//resultsVlc.add(hits);
 				for(final Tool m : result)
-					resultsVlc.add(new ModelView(m));
+				{
+					ModelView t = new  ModelView(m,true);
+					t.addClickHandler(new ClickHandler(){
+
+						@Override
+						public void onClick(ClickEvent event) {
+							resultsVlc.clear();
+							resultsVlc.add(new  ModelView(m,false));
+							
+						}});
+					resultsVlc.add(t);
+				}
 			}});
 
 	}
