@@ -18,7 +18,6 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.sencha.gxt.core.client.dom.ScrollSupport.ScrollMode;
@@ -70,12 +69,6 @@ public class ToolBrowser extends Composite
 					find(null);
 			}
 		});
-		
-		Image tableview = new Image("table.png");
-		tableview.setTitle("Toggle between list and table views");
-		tableview.setPixelSize(20, 20);
-		panel.getHeader().addTool(tableview);
-		
 		
 		History.addValueChangeHandler(new ValueChangeHandler<String>() {
 

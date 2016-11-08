@@ -21,7 +21,7 @@ public class ModelView extends Composite
 	@UiField FramedPanel panel;
     @UiField VerticalLayoutContainer vlc;
 
-	private final ToolServiceAsync statehubsvc = GWT.create(ToolService.class);
+	private final ToolServiceAsync toolsvc = GWT.create(ToolService.class);
 	Tool tool;
 	
 	public ModelView(final Tool tool)
