@@ -1,5 +1,5 @@
 Name
-biscuit
+SeSame
 
 Category
 genomics
@@ -14,7 +14,7 @@ License
 license info here
 
 Contact
-Wanding Zhou @ vari org
+Hui Shen @ vari org
 
 References
 pubmed sdf

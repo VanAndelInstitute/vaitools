@@ -18,11 +18,13 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.sencha.gxt.core.client.dom.ScrollSupport.ScrollMode;
 import com.sencha.gxt.widget.core.client.FramedPanel;
 import com.sencha.gxt.widget.core.client.button.TextButton;
+import com.sencha.gxt.widget.core.client.container.FlowLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.form.TextField;
@@ -44,6 +46,7 @@ public class ToolBrowser extends Composite
 	@UiField Label allResults;
 	@UiField Label genomicsResults;
 	@UiField Label analysisResults;
+    @UiField FlowPanel resultsFlow;
 	ArrayList<Tool> tools;
 	
 	public ToolBrowser()
@@ -78,11 +81,11 @@ public class ToolBrowser extends Composite
 				if(tools == null || tools.size() < 1)
 					return;
 				String history = event.getValue();
-				resultsVlc.clear();
+				resultsFlow.clear();
 				if(history.contentEquals("results") || history.length()==0)
 					showSearchResults();
 				else
-					resultsVlc.add(new ModelView(tools.get(Integer.parseInt(history)),false));
+					resultsFlow.add(new ModelView(tools.get(Integer.parseInt(history)),false));
 			}
 	    });
 		doSearch("");
@@ -136,7 +139,7 @@ public class ToolBrowser extends Composite
 	
 	private void showSearchResults()
 	{
-		resultsVlc.clear();
+		resultsFlow.clear();
 		for(int i = 0; i<tools.size();i++)
 		{
 			ModelView t = new  ModelView(tools.get(i),true);
@@ -147,7 +150,7 @@ public class ToolBrowser extends Composite
 				public void onClick(ClickEvent event) {
 					History.newItem("" + j);
 				}});
-			resultsVlc.add(t);
+			resultsFlow.add(t);
 		}
 	}
 	
