@@ -2,7 +2,6 @@ package org.vai.hpc.vaitools.client;
 import org.vai.hpc.vaitools.client.data.Tool;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
@@ -25,7 +24,7 @@ public class ModelView extends Composite implements HasClickHandlers
 	@UiField FramedPanel panel;
     @UiField VerticalLayoutContainer vlc;
 
-	private final ToolServiceAsync toolsvc = GWT.create(ToolService.class);
+	//private final ToolServiceAsync toolsvc = GWT.create(ToolService.class);
 	Tool tool;
 	Label clickableHeading;
 	

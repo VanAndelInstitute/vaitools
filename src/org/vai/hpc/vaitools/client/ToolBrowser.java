@@ -1,9 +1,7 @@
 package org.vai.hpc.vaitools.client;
 
 import java.util.ArrayList;
-
 import org.vai.hpc.vaitools.client.data.Tool;
-
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -20,7 +18,6 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
-
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.sencha.gxt.core.client.dom.ScrollSupport.ScrollMode;
@@ -29,7 +26,6 @@ import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.form.TextField;
-
 import com.sencha.gxt.widget.core.client.info.Info;
 
 public class ToolBrowser extends Composite
@@ -45,10 +41,10 @@ public class ToolBrowser extends Composite
     @UiField VerticalLayoutContainer resultsVlc;
 	@UiField TextButton searchButton;
 	@UiField TextField searchText;
-	ArrayList<Widget> historyWidgets = new ArrayList<Widget>();
+	@UiField Label allResults;
+	@UiField Label genomicsResults;
+	@UiField Label analysisResults;
 	ArrayList<Tool> tools;
-	
-	
 	
 	public ToolBrowser()
 	{
@@ -79,18 +75,51 @@ public class ToolBrowser extends Composite
 			@Override
 			public void onValueChange(ValueChangeEvent<String> event)
 			{
+				if(tools == null || tools.size() < 1)
+					return;
+				String history = event.getValue();
 				resultsVlc.clear();
-				for(Widget w : historyWidgets)
-					resultsVlc.add(w);
+				if(history.contentEquals("results") || history.length()==0)
+					showSearchResults();
+				else
+					resultsVlc.add(new ModelView(tools.get(Integer.parseInt(history)),false));
 			}
-		      
-		      
-		    });
+	    });
+		doSearch("");
 	}
 	@UiHandler("searchButton")
 	public void find(SelectEvent event)
 	{
-		toolsvc.getModel(searchText.getText(), new AsyncCallback<ArrayList<Tool>>(){
+		doSearch(searchText.getText());
+	}
+	
+	@UiHandler("allResults")
+	public void findAll(ClickEvent event)
+	{
+		doSearch("");
+	}
+	
+	@UiHandler("genomicsResults")
+	public void findone(ClickEvent event)
+	{
+		doSearch("genomics");
+	}
+	
+	@UiHandler("analysisResults")
+	public void findtwo(ClickEvent event)
+	{
+		doSearch("analysis");
+	}
+	
+	@UiHandler("dataResults")
+	public void findthree(ClickEvent event)
+	{
+		doSearch("data");
+	}
+	
+	private void doSearch(String s)
+	{
+		toolsvc.getModel(s, new AsyncCallback<ArrayList<Tool>>(){
 
 			@Override
 			public void onFailure(Throwable caught) {
@@ -98,22 +127,28 @@ public class ToolBrowser extends Composite
 			}
 
 			@Override
-			public void onSuccess(ArrayList<Tool> result) {
-				resultsVlc.clear();
-				for(final Tool m : result)
-				{
-					ModelView t = new  ModelView(m,true);
-					t.addClickHandler(new ClickHandler(){
-
-						@Override
-						public void onClick(ClickEvent event) {
-							resultsVlc.clear();
-							resultsVlc.add(new  ModelView(m,false));
-							
-						}});
-					resultsVlc.add(t);
-				}
+			public void onSuccess(final ArrayList<Tool> result) {
+				History.newItem("results");
+				tools = result;
+				showSearchResults();
 			}});
-
 	}
+	
+	private void showSearchResults()
+	{
+		resultsVlc.clear();
+		for(int i = 0; i<tools.size();i++)
+		{
+			ModelView t = new  ModelView(tools.get(i),true);
+			final int j = i;
+			t.addClickHandler(new ClickHandler(){
+
+				@Override
+				public void onClick(ClickEvent event) {
+					History.newItem("" + j);
+				}});
+			resultsVlc.add(t);
+		}
+	}
+	
 }

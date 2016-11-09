@@ -29,11 +29,17 @@
 
   <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="topLevel">
     <container:child>
-      <c:FramedPanel heading="Tool Search: Find tools developed at VARI" ui:field="panel" stylePrimaryName="searchPanel">
+      <c:FramedPanel heading="Tool Search: Find Tools and Data Sets developed at VARI" ui:field="panel" stylePrimaryName="searchPanel">
         <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="vlc">
 			<g:HorizontalPanel>
-				 <form:TextField ui:field="searchText" width="300px" stylePrimaryName="searchInput" allowBlank="false"  emptyText="Enter Search Text..." />
+				 <form:TextField ui:field="searchText" width="360px" stylePrimaryName="searchInput" allowBlank="false"  emptyText="Enter Search Text..." />
 				 <button:TextButton text="Search" ui:field="searchButton"/>
+			</g:HorizontalPanel>
+			<g:HorizontalPanel>
+				 <g:Label ui:field="allResults" stylePrimaryName="presetSearch" text="All" />
+				 <g:Label ui:field="genomicsResults" stylePrimaryName="presetSearch" text="genomics" />
+				 <g:Label ui:field="analysisResults" stylePrimaryName="presetSearch" text="analysis" />
+				 <g:Label ui:field="dataResults" stylePrimaryName="presetSearch" text="data" />
 			</g:HorizontalPanel>
 		 </container:VerticalLayoutContainer>
       </c:FramedPanel>
