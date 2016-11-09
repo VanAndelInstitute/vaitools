@@ -3,12 +3,10 @@ package org.vai.hpc.vaitools.server;
 import java.io.File;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
-import java.nio.file.Path;
+
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Properties;
 import org.vai.hpc.vaitools.client.ToolService;
 import org.vai.hpc.vaitools.client.data.Tool;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -65,6 +63,14 @@ public class ToolServiceImpl extends RemoteServiceServlet implements ToolService
 		} catch (Exception e)
 		{
 			e.printStackTrace();
+		}
+		if(search.length() > 0)
+		{
+			ArrayList<Tool> filtered = new ArrayList<Tool>();
+			for(Tool t : tools)
+				if(t.toString().toLowerCase().contains(search))
+					filtered.add(t);
+			tools=filtered;
 		}
 		return tools;
 	}

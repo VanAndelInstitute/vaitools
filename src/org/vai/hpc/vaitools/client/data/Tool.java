@@ -26,4 +26,13 @@ public class Tool implements Serializable
 	{
 		return new ArrayList<String>(this.getTextSections().keySet());
 	}
+	
+	public String toString()
+	{
+		String ret = "";
+		for(String k : getAllSections())
+			ret += k + " " + getSection(k) + "\n";
+		
+		return ret;
+	}
 }
