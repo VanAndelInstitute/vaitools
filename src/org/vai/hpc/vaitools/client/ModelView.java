@@ -23,7 +23,7 @@ public class ModelView extends Composite implements HasClickHandlers
 	interface ModelViewUiBinder extends UiBinder<Widget, ModelView>	{}
 	@UiField FramedPanel panel;
     @UiField VerticalLayoutContainer vlc;
-
+    @UiField VerticalLayoutContainer topToolPanel;
 	//private final ToolServiceAsync toolsvc = GWT.create(ToolService.class);
 	Tool tool;
 	Label clickableHeading;
@@ -44,11 +44,11 @@ public class ModelView extends Composite implements HasClickHandlers
 			HTML content = new HTML(tool.getSection("Overview"));
 			content.setStylePrimaryName("toolContent");
 			vlc.add(content);
-			
 		}
 		else
 			for(int i = 0; i< tool.getAllSections().size(); i++)
 			{
+				topToolPanel.setStylePrimaryName("toolPanelBig");
 				Label heading = new Label(tool.getAllSections().get(i));
 				heading.setStylePrimaryName("toolHeading");
 				vlc.add(heading);

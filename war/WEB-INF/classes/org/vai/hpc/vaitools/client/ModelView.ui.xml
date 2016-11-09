@@ -23,7 +23,7 @@
     <ui:attributes width="-1" height="1"  margins="{topFormMargins}" />
   </ui:with>
 
-  <container:VerticalLayoutContainer stylePrimaryName="toolPanel">
+  <container:VerticalLayoutContainer ui:field="topToolPanel" stylePrimaryName="toolPanelSmall">
     <container:child>
       <c:FramedPanel heading="modelName" ui:field="panel" layoutData="{verticalLayoutData}">
       	 <container:VerticalLayoutContainer  ui:field="vlc" layoutData="{verticalLayoutData}"/>

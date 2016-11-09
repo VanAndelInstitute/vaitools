@@ -28,6 +28,9 @@
   </ui:with>
 
   <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="topLevel">
+  <container:child>
+  	<g:HTML><iframe src="http://www.vai.org" width="100%?" class="vaiheader"/></g:HTML>
+  </container:child>
     <container:child>
       <c:FramedPanel heading="Tool Search: Find Tools and Data Sets developed at VARI" ui:field="panel" stylePrimaryName="searchPanel">
         <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="vlc">
@@ -44,7 +47,9 @@
 		 </container:VerticalLayoutContainer>
       </c:FramedPanel>
     </container:child>
-    <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="resultsVlc"/>
+    <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="resultsVlc" stylePrimaryName="resultsFlow">
+    	<g:FlowPanel stylePrimaryName="resultsFlow" ui:field="resultsFlow"/>
+    </container:VerticalLayoutContainer>
   </container:VerticalLayoutContainer>
 
 </ui:UiBinder>
