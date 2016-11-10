@@ -28,18 +28,18 @@
   </ui:with>
 
   <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="topLevel">
-  <container:child>
-  	<g:HTML><iframe src="http://www.vai.org" width="100%?" class="vaiheader"/></g:HTML>
-  </container:child>
+<!--   <container:child> -->
+<!--   	<g:HTML><iframe src="http://www.vai.org" width="100%?" class="vaiheader"/></g:HTML> -->
+<!--   </container:child> -->
     <container:child>
       <c:FramedPanel heading="Tool Search: Find Tools and Data Sets developed at VARI" ui:field="panel" stylePrimaryName="searchPanel">
         <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="vlc">
 			<g:HorizontalPanel>
-				 <form:TextField ui:field="searchText" width="360px" stylePrimaryName="searchInput" allowBlank="false"  emptyText="Enter Search Text..." />
+				 <form:TextField ui:field="searchText" width="380px" stylePrimaryName="searchInput" allowBlank="false"  emptyText="Enter Search Text..." />
 				 <button:TextButton text="Search" ui:field="searchButton"/>
 			</g:HorizontalPanel>
 			<g:HorizontalPanel>
-				 <g:Label ui:field="allResults" stylePrimaryName="presetSearch" text="All" />
+				 <g:Label ui:field="allResults" stylePrimaryName="presetSearch" text="Show All" />
 				 <g:Label ui:field="genomicsResults" stylePrimaryName="presetSearch" text="genomics" />
 				 <g:Label ui:field="analysisResults" stylePrimaryName="presetSearch" text="analysis" />
 				 <g:Label ui:field="dataResults" stylePrimaryName="presetSearch" text="data" />
@@ -47,7 +47,7 @@
 		 </container:VerticalLayoutContainer>
       </c:FramedPanel>
     </container:child>
-    <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="resultsVlc" stylePrimaryName="resultsFlow">
+    <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="resultsVlc" stylePrimaryName="resultsFlowParent">
     	<g:FlowPanel stylePrimaryName="resultsFlow" ui:field="resultsFlow"/>
     </container:VerticalLayoutContainer>
   </container:VerticalLayoutContainer>
