@@ -7,6 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+
 import org.vai.hpc.vaitools.client.ToolService;
 import org.vai.hpc.vaitools.client.data.Tool;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -24,7 +26,11 @@ public class ToolServiceImpl extends RemoteServiceServlet implements ToolService
 		ArrayList<Tool> tools = new ArrayList<Tool>();
 		try
 		{
-			File folder = new File("tools");
+			Properties prop = new Properties();
+			prop.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("config.properties"));
+			String toolPath = prop.getProperty("toolpath");
+			
+			File folder = new File(toolPath);
 			Charset charset = Charset.forName("ISO-8859-1");
 			for (final File fileEntry : folder.listFiles()) 
 			{
