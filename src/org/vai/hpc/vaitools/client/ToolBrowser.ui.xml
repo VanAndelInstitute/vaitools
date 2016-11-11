@@ -28,9 +28,9 @@
   </ui:with>
 
   <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="topLevel">
-<!--   <container:child> -->
-<!--   	<g:HTML><iframe src="http://www.vai.org" width="100%?" class="vaiheader"/></g:HTML> -->
-<!--   </container:child> -->
+   <container:child> 
+   	<g:HTML><table><tr><td><img src="vailogo.jpg" class="headerImg"/></td><td><span class="headerText">VARI: Tools and Data</span></td></tr></table><div class="mainbannerrow"><img class="mainbanner" src="Rothbart_banner_new.jpg"/></div></g:HTML>
+   </container:child> 
     <container:child>
       <c:FramedPanel heading="Tool Search: Find Tools and Data Sets developed at VARI" ui:field="panel" stylePrimaryName="searchPanel">
         <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="vlc">
