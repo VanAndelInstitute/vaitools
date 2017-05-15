@@ -2,20 +2,25 @@ Name
 ArrayNinja
 
 Category
-Visualization
+Visualization, microarray
 
 Overview
-a tools for picking arrays. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+ArrayNinja is a portable, open source and interactive application that unifies the planning, visualization, and analysis of custom microarray experiments.ArrayNinja is distributed as a virtual machine (VM) that runs a local and private web server. Because the tools are packaged as a VM and utilize a web browser as a user interface, ArrayNinja is platform agnostic.
 
-Download an Installation
-github site <a href="http://github.com"> here </a>
+Install as a Virtual Machine
+The ArrayNinja VM is built to use VirtualBox, which is a free tool for building and running virtual machines. VirtualBox must be installed before the ArrayNinja VM can be used. To download the ArrayNinja VM, visit http://research.vai.org/Tools/arrayninja . To run ArrayNinja, unzip the VM and load the VM into virtualbox. Once the VM is running, navigate your web browser to http://localhost:2080
 
-License
-license info here
+Docker Installation
+ArrayNinja can be run on linux platforms via a docker application. The docker can be found at Docker Hub and it can be installed by pulling bradleydickson/arrayninja.<br/>The docker app should be started with command:<br/>docker run -d -p 2080:80 bradleydickson/arrayninja
+
+License: Academic and not-for-profit
+ArrayNinja is released under GNU General Public License, version 2. This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 2 of the License. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 Contact
-Brad Dickson @ vari org
+For business and licensing inquiries, please contact BusinessDev@vai.org. For scientific inquiries, please contact inquiries@arrayninja.com. 
 
 References
-pubmed sdf
-asdasd
+Dickson BM, Cornett EM, Ramjan Z, Rothbart SB. 2016. ArrayNinja: An open source platform for unified planning and analysis of microarray experiments. <i>Methods Enzymol</i> 574:53-77. <br/>Cornett EM, Dickson BM, Vaughan RM, Krishnan S, Trievel RC, Strahl BD, Rothbart SB. 2016. Substrate specificity profiling of histone-modifying enzymes by peptide microarray. <i>Methods Enzymol</i> 574:31–52. 
+
+
+

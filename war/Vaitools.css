@@ -1,7 +1,5 @@
 /** Add css rules here for your application. */
 
-
-/** Example rules used by the template application (remove for your app) */
 .toolHeading {
   font-size: 1.5em;
   font-family: "Montserrat";
@@ -16,6 +14,7 @@
   font-weight: bold;
   color: #58595b;
   text-align : left;
+  cursor: pointer;
  }
  
  .toolHeadingLink:hover {
@@ -24,6 +23,7 @@
   font-weight: bold;
   color: #005a9b;
   text-decoration: underline;
+  cursor: pointer;
  }
 
  .toolContent {
@@ -34,7 +34,9 @@
  }
  
  .searchPanel {
- 	width: 470px;
+ 	max-width: 600px;
+    min-width: 600px;
+ 	width: 80%;
  	background-color: #f5f5f5;
  	margin-left:auto; 
     margin-right:auto;
@@ -42,10 +44,16 @@
       font-family: "Montserrat";
  }
  
- .searchInput {
- 	width: 300px;
+  .searchInput input[type=text],  .searchInput div, .searchInput {
+	
+ 	width: 450px !important;
  }
  
+ .searchButton
+ {
+ 	margin-left: 30px;
+ 	
+ }
  .toolPanelSmall {
  	width: 80%;
  	margin-left:auto; 
@@ -53,7 +61,12 @@
     max-width: 600px;
     min-width: 400px;
     margin: 5px;
-    display: inline-block; 
+    display: inline-block;
+ }
+ 
+ 
+ .toolPanelSmallFramedPanel {
+ 	height: 200px;
  }
  
  
@@ -88,6 +101,7 @@
     font-family: "Montserrat";
     color: #33d;
     text-decoration: underline;
+    cursor: pointer;
  }
  
  
@@ -116,15 +130,25 @@
  }
  
  .headerImg {
+ 	height: 54px;
  
  }
  .headerText {
  	margin-left: 20px;
-	font-size: 50px;
+	font-size: 40px;
 	font-family: "Raleway","Montserrat","Lucida Sans Unicode", "Lucida Grande", sans-serif;	
 	color: #454545;
+	text-decoration: none;
 	
 }
+
+.introText {
+	font-family: "Montserrat";
+  	color: #58595b;
+  	text-align : left;
+  	margin-bottom: 10px;
+}
+
 
 .mainbanner {
 	 height: 150px;

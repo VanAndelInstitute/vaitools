@@ -1,12 +1,13 @@
 package org.vai.hpc.vaitools.client.data;
-import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class Tool implements Serializable
+import com.google.gwt.user.client.rpc.IsSerializable;
+
+public class Tool implements IsSerializable
 {
-	private static final long serialVersionUID = 1L;
 	String id;
 	LinkedHashMap<String,String> sectionMap = new LinkedHashMap<String,String>();
 	public LinkedHashMap<String, String> getTextSections() {
