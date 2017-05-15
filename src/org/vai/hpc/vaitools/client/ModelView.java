@@ -46,9 +46,12 @@ public class ModelView extends Composite implements HasClickHandlers
 			vlc.add(content);
 		}
 		else
+		{
+			topToolPanel.setStylePrimaryName("toolPanelBig");
+			panel.removeStyleName("toolPanelSmallFramedPanel");
 			for(int i = 0; i< tool.getAllSections().size(); i++)
 			{
-				topToolPanel.setStylePrimaryName("toolPanelBig");
+				
 				Label heading = new Label(tool.getAllSections().get(i));
 				heading.setStylePrimaryName("toolHeading");
 				vlc.add(heading);
@@ -58,6 +61,7 @@ public class ModelView extends Composite implements HasClickHandlers
 				if(i<tool.getAllSections().size()-1)
 					vlc.add(new HTML("<hr  class=\"toolhr\" />"));
 			}
+		}
 	}
 
 	@Override

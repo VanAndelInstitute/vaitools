@@ -1,0 +1,16 @@
+Name
+Histone Antibody Database
+
+Category
+Epigenetics, histones, antibodies, database
+
+Overview
+Access to high-quality antibodies is a necessity for the study of histones and their posttranslational modifications (PTMs). The Histone Antibody Specificity Database is an online and expanding resource that catalogs the behavior of widely used, commercially available histone antibodies by peptide microarray. This interactive web portal provides a critical resource to the biological research community that routinely uses these antibodies as detection reagents for a wide range of applications.
+
+Access the Database
+http://www.histoneantibodies.com/
+
+
+Contact
+Scott.Rothbart@vai.org
+

@@ -25,7 +25,7 @@
 
   <container:VerticalLayoutContainer ui:field="topToolPanel" stylePrimaryName="toolPanelSmall">
     <container:child>
-      <c:FramedPanel heading="modelName" ui:field="panel" layoutData="{verticalLayoutData}">
+      <c:FramedPanel heading="modelName" ui:field="panel" layoutData="{verticalLayoutData}" stylePrimaryName="toolPanelSmallFramedPanel">
       	 <container:VerticalLayoutContainer  ui:field="vlc" layoutData="{verticalLayoutData}"/>
       </c:FramedPanel>
     </container:child>

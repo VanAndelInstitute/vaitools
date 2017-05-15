@@ -19,6 +19,7 @@ import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.sencha.gxt.core.client.dom.ScrollSupport.ScrollMode;
@@ -46,6 +47,8 @@ public class ToolBrowser extends Composite
 	@UiField Label genomicsResults;
 	@UiField Label analysisResults;
     @UiField FlowPanel resultsFlow;
+    @UiField HTML introText;
+    @UiField HTML headerHTML;
 	ArrayList<Tool> tools;
 	
 	public ToolBrowser()
@@ -92,35 +95,41 @@ public class ToolBrowser extends Composite
 	@UiHandler("searchButton")
 	public void find(SelectEvent event)
 	{
+		introText.setVisible(false);
 		doSearch(searchText.getText());
 	}
 	
 	@UiHandler("allResults")
 	public void findAll(ClickEvent event)
 	{
+		introText.setVisible(false);
 		doSearch("");
 	}
 	
 	@UiHandler("genomicsResults")
 	public void findone(ClickEvent event)
 	{
+		introText.setVisible(false);
 		doSearch("genomics");
 	}
 	
 	@UiHandler("analysisResults")
 	public void findtwo(ClickEvent event)
 	{
+		introText.setVisible(false);
 		doSearch("analysis");
 	}
 	
 	@UiHandler("dataResults")
 	public void findthree(ClickEvent event)
 	{
+		introText.setVisible(false);
 		doSearch("data");
 	}
 	
 	private void doSearch(String s)
 	{
+	
 		toolsvc.getModel(s, new AsyncCallback<ArrayList<Tool>>(){
 
 			@Override
