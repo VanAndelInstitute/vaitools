@@ -47,15 +47,15 @@ public class ToolBrowser extends Composite
 	@UiField Label genomicsResults;
 	@UiField Label analysisResults;
     @UiField FlowPanel resultsFlow;
-    @UiField HTML introText;
+    //@UiField HTML introText;
     @UiField HTML headerHTML;
 	ArrayList<Tool> tools;
 	
 	public ToolBrowser()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
-		topLevel.setWidth(com.google.gwt.user.client.Window.getClientWidth()-100);
-		topLevel.setHeight(com.google.gwt.user.client.Window.getClientHeight()-80);
+		topLevel.setWidth(com.google.gwt.user.client.Window.getClientWidth());
+		topLevel.setHeight(com.google.gwt.user.client.Window.getClientHeight());
 		vlc.setScrollMode(ScrollMode.AUTO);
 		resultsVlc.setScrollMode(ScrollMode.AUTO);
 		com.google.gwt.user.client.Window.addResizeHandler(new ResizeHandler(){
@@ -63,8 +63,8 @@ public class ToolBrowser extends Composite
 			@Override
 			public void onResize(ResizeEvent event)
 			{
-				topLevel.setWidth(event.getWidth()-100);
-				topLevel.setHeight(event.getHeight()-200);
+				topLevel.setWidth(event.getWidth());
+				topLevel.setHeight(event.getHeight());
 			}});
 		
 		searchText.addKeyDownHandler(new KeyDownHandler(){
@@ -95,35 +95,30 @@ public class ToolBrowser extends Composite
 	@UiHandler("searchButton")
 	public void find(SelectEvent event)
 	{
-		introText.setVisible(false);
 		doSearch(searchText.getText());
 	}
 	
 	@UiHandler("allResults")
 	public void findAll(ClickEvent event)
 	{
-		introText.setVisible(false);
 		doSearch("");
 	}
 	
 	@UiHandler("genomicsResults")
 	public void findone(ClickEvent event)
 	{
-		introText.setVisible(false);
 		doSearch("genomics");
 	}
 	
 	@UiHandler("analysisResults")
 	public void findtwo(ClickEvent event)
 	{
-		introText.setVisible(false);
 		doSearch("analysis");
 	}
 	
 	@UiHandler("dataResults")
 	public void findthree(ClickEvent event)
 	{
-		introText.setVisible(false);
 		doSearch("data");
 	}
 	

@@ -1,4 +1,4 @@
 #!/bin/bash
-ssh root@dashboard.hpc.vai.org "rm -r /tmp/tools.old; mv /var/lib/tomcat/webapps/tools /tmp/tools.old"
+ssh root@tools.vai.org "rm -r /tmp/tools.old; mv /opt/tomcat/webapps/tools /tmp/tools.old"
 sleep 10;
-scp -r war root@dashboard.hpc.vai.org:/var/lib/tomcat/webapps/tools
+scp -r war root@tools.vai.org:/opt/tomcat/webapps/tools

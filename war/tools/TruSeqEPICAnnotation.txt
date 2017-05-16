@@ -5,7 +5,7 @@ Category
 genomics
 
 Overview
-TruSeq Methyl Capture EPIC (TruSeq EPIC) is a targeted bisulfite sequencing platform provided by Illumina. Combining bisulfite conversion with hybrid selection and deep sequencing, TruSeq EPIC can perform whole-genome DNA methylation profiling. We applied this new technology to biological replicates of human cell lines to assess its genome-wide CpG coverage, capture performance, accuracy, reproducibility and biomarker discovery ability. The comprehensive evaluation reveals that the TruSeq EPIC is a significant improvement over the EPIC array, with newly designed target content and high preformation in reproducibility and discovery ability. The evaluation reveals that TruSeq EPIC provides a cost-effective intermediate solution to increase the methylome coverage on the most informative genome regions in large cohorts. This website provides systematic annotation of target regions and CpGs in TruSeq EPIC.
+TruSeq Methyl Capture EPIC (TruSeq EPIC) is a targeted bisulfite sequencing platform provided by Illumina. Combining bisulfite conversion with hybrid selection and deep sequencing, TruSeq EPIC can perform whole-genome DNA methylation profiling. We applied this new technology to biological replicates of human cell lines to assess its genome-wide CpG coverage, capture performance, accuracy, reproducibility and biomarker discovery ability.
 
 Tool Availability
 available online <a href="/TruSeqEPICAnnotation"> HERE </a>
