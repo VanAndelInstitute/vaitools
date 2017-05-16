@@ -16,7 +16,7 @@
   </ui:with>
 
   <ui:with type="com.sencha.gxt.core.client.util.Margins" field="topFormMargins">
-    <ui:attributes top="15" right="15" bottom="15" left="15" />
+    <ui:attributes top="15" right="0" bottom="15" left="0" />
   </ui:with>
 
 <!--   <ui:with type="com.sencha.gxt.widget.core.client.container.MarginData" field="topFormMarginData"> -->
@@ -28,18 +28,27 @@
   </ui:with>
 
   <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="topLevel">
-   <container:child> 
+    <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="resultsVlc" stylePrimaryName="resultsFlowParent">
+    <container:child> 
    	<g:HTML ui:field="headerHTML">
    		<table><tr><td><a href="http://vari.vai.org/"><img src="vailogo.png" class="headerImg"/></a></td><td><a href="http://tools.vai.org/" style="text-decoration:none;"><span class="headerText">VARI: Tools and Data</span></a></td></tr></table>
    		<div class="mainbannerrow">
-   		<img class="mainbanner" src="Rothbart_banner_new.jpg"/></div>
+   		<table>
+	   		<tr>
+	   			<td>
+	   				<div class="introText">Van Andel Research Institute scientists are on the cutting-edge of biomedical research aimed at improving the health and enhancing the lives of current and future generations. In the course of these efforts, they often develop novel software and tools to aid not only their work but also the efforts of the scientific community at large. The Institute is pleased to share these resources with colleagues around the world through its Tools Database.</div>
+	   			</td>
+	   			<td>
+	   				<img class="mainbanner" src="Rothbart_banner_new.jpg"/>
+	   			</td>
+	   		</tr>
+   		</table>
+   		</div>
    		</g:HTML>
-   </container:child> 
-    <container:child>
-      <c:FramedPanel heading="Tool Search: Find Tools and Data Sets developed at VARI" ui:field="panel" stylePrimaryName="searchPanel">
+    </container:child>
+    	 <c:FramedPanel heading="Tool Search: Find Tools and Data Sets developed at VARI" ui:field="panel" stylePrimaryName="searchPanel">
         <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="vlc">
-         	<g:HTML ui:field="introText"><div class="introText">Van Andel Research Institute scientists are on the cutting-edge of biomedical research aimed at improving the health and enhancing the lives of current and future generations. In the course of these efforts, they often develop novel software and tools to aid not only their work but also the efforts of the scientific community at large. The Institute is pleased to share these resources with colleagues around the world through its Tools Database.</div></g:HTML>
-			<g:HorizontalPanel>
+         	<g:HorizontalPanel>
 				 <form:TextField ui:field="searchText" stylePrimaryName="searchInput" allowBlank="true"  emptyText="Search Tools and Data..." />
 				 <button:TextButton text="Search" ui:field="searchButton" stylePrimaryName="searchButton"/>
 			</g:HorizontalPanel>
@@ -51,8 +60,6 @@
 			</g:HorizontalPanel>
 		 </container:VerticalLayoutContainer>
       </c:FramedPanel>
-    </container:child>
-    <container:VerticalLayoutContainer layoutData="{verticalLayoutData}" ui:field="resultsVlc" stylePrimaryName="resultsFlowParent">
     	<g:FlowPanel stylePrimaryName="resultsFlow" ui:field="resultsFlow"/>
     </container:VerticalLayoutContainer>
   </container:VerticalLayoutContainer>
